@@ -1,0 +1,65 @@
+.block-home{
+    .brandname-description{
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 0;
+        padding: 30px 0;
+    }
+    .block-slide-brandname{
+        margin: 10px 0;
+        margin-bottom: 30px;
+        padding: 30px 0;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+    }
+    .block-now-trending{
+        margin-bottom: 30px;
+        &__title{
+            font-style: italic;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        &__slide{
+            &__item{
+                padding: 0 10px;
+            }
+        }
+
+        .slick-slide {
+            width: 160px;
+            height: 200px;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .block-quote__slide{
+        margin-bottom: 60px;
+    }
+    .block-product-by-category{
+        padding-bottom: 80px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid;
+        &:last-child{
+            border-bottom: 0;
+        }
+        &__title{
+            font-style: italic;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.slick-slide{
+    height: auto;
+}
+.slick-arrow {
+    background-color: #eee;
+    border: 1px solid #efefef;
+}

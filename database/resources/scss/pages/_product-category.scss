@@ -1,0 +1,17 @@
+.block-product-category {
+    .item-load-more {
+        display: none;
+    }
+
+    .load-more {
+        border-color: #3d6db5;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #3d6db5;
+        &:hover{
+            background-color: #3d6db5;
+            color: #FFFFFF;
+        }
+    }
+}

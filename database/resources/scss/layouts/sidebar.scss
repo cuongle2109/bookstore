@@ -1,0 +1,19 @@
+.block-sidebar{
+    .card{
+        margin-bottom: 10px;
+        border: 0;
+        &-header{
+            padding: 0;
+            background-color: #3e5962;
+            .btn{
+                font-weight: 600;
+                color: #FFFFFF;
+                width: 100%;
+                text-align: left;
+            }
+        }
+        &-body{
+            padding-right: 0;
+        }
+    }
+}
