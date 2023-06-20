@@ -2,7 +2,7 @@
 @section('title', 'Home')
 @section('content')
     <div class="block-product-category">
-        <img src="/storage/images/banner-gifl.jpg" class="img img-fluid mb-3" alt="#" width="100%">
+        <img src="{{ asset('images/banner-gift.jpg') }}" class="img img-fluid mb-3" alt="#" width="100%">
         <div class="container">
             <div class="row">
                 <div class="col-3">
@@ -48,7 +48,10 @@
                                 <div class="box-product">
                                     <a href="{{ route('mypage.product-detail.show',$product['id']) }}">
                                         <div class="box-product__image">
-                                            <img src="/storage/files/{{ $product['photos'][0] }}"
+                                            <img src="{{ file_exists('images/' . $product['photos'][0])
+                                            ? asset('images/' . $product['photos'][0])
+                                            : asset('storage/files/' . $product['photos'][0])
+                                          }}"
                                                  alt="">
                                         </div>
                                         <div class="box-product__content">

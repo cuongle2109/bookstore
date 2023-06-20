@@ -5,7 +5,10 @@
             @if($product['isTrending'])
                 <div class="block-now-trending__slide__item">
                     <a href="{{ route('mypage.product-detail.show',$product['id']) }}">
-                        <img src="/storage/files/{{ $product['photos'][0] }}" class="img img-fluid" alt="#">
+                        <img src="{{ file_exists('images/book-' . $product->id . '.jpg')
+                                                ? asset('images/book-' . $product->id . '.jpg')
+                                                : asset('storage/files/' . explode(',', $product->photo)[0])
+                                     }}" class="img img-fluid" alt="#">
                     </a>
                 </div>
             @endif

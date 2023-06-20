@@ -3,10 +3,10 @@
 @section('content')
     <div class="block-home">
         <div>
-            <img src="/storage/images/banner-gifl.jpg" class="img img-fluid mb-3" alt="#" width="100%">
-            <a href="">
-                <img src="/storage/files/{{ $banner->photo }}" width="100%"/>
-            </a>
+            <img src="{{ asset('images/banner-gift.jpg') }}" class="img img-fluid mb-3" alt="#" width="100%">
+            <div class="d-flex justify-content-center">
+                <img class="text-center" src="{{ asset('storage/files/' . $banner->photo) }}"/>
+            </div>
         </div>
         <div class="container">
 
@@ -25,7 +25,12 @@
                                     <div class="box-product box-product--large">
                                         <a href="{{ route('mypage.product-detail.show',$product['id']) }}">
                                             <div class="box-product__image">
-                                                <img src="/storage/files/{{ $product['photos'][0] }}" alt="">
+                                                <img src="{{ file_exists('images/book-' . $product['id'] . '.jpg')
+                                                                    ? asset('images/book-' . $product['id'] . '.jpg')
+                                                                    : asset('storage/files/' . explode(',', $product['photo'])[0])
+                                                                  }}"
+                                                     alt=""
+                                                >
                                             </div>
                                             <div class="box-product__content">
                                                 <h3 class="box-product__content__title">{{ $product['name'] }}</h3>
@@ -47,8 +52,12 @@
                                             <div class="box-product">
                                                 <a href="{{ route('mypage.product-detail.show',$product['id']) }}">
                                                     <div class="box-product__image">
-                                                        <img src="/storage/files/{{ $product['photos'][0] }}"
-                                                             alt="">
+                                                        <img src="{{ file_exists('images/book-' . $product['id'] . '.jpg')
+                                                                    ? asset('images/book-' . $product['id'] . '.jpg')
+                                                                    : asset('storage/files/' . explode(',', $product['photo'])[0])
+                                                                  }}"
+                                                             alt=""
+                                                        >
                                                     </div>
                                                     <div class="box-product__content">
                                                         <h3 class="box-product__content__title">{{ $product['name'] }}</h3>

@@ -20,9 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('Category')->get();
-        foreach ($products as $product) {
-            $product->photos = explode(",", $product->photo);
-        }
+//        dd($products);
         return view('admin.product.index', compact('products'));
     }
 

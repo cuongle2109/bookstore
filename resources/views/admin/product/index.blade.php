@@ -33,7 +33,12 @@
                             <td>{{ $product['id'] }}</td>
                             <td>{{ $product['name'] }}</td>
                             <td>
-                                <img class="img img-fluid" src="/storage/files/{{ $product['photos'][0] }}" alt="" width="100">
+                                <img alt="" width="100"
+                                     src="{{ file_exists('images/book-' . $product->id . '.jpg')
+                                                ? asset('images/book-' . $product->id . '.jpg')
+                                                : asset('storage/files/' . explode(',', $product->photo)[0])
+                                     }}"
+                                >
                             </td>
                             <td>{{ number_format($product['price']) }} VNĐ</td>
                             <td>{{ $product['quantity'] }}</td>

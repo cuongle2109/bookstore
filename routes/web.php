@@ -70,7 +70,7 @@ Route::middleware('auth:sanctum')->group( function () {
 
 Route::group(['prefix' => 'mypage/','Namespace' => 'Mypage','as' => 'mypage.'], function (){
     Route::resource('home', HomeController::class)->names([
-        'index' => 'mypage.home.index',
+        'index' => 'home.index',
     ]);
     Route::resource('product-by-category', ProductCategoryController::class);
     Route::resource('product-detail', ProductDetailController::class);

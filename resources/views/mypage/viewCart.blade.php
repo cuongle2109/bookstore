@@ -2,7 +2,7 @@
 @section('title', 'Home')
 @section('content')
     <div class="block-view-cart">
-        <img src="/storage/images/banner-gifl.jpg" class="img img-fluid mb-3" alt="#" width="100%">
+        <img src="{{ asset('images/banner-gift.jpg') }}" class="img img-fluid mb-3" alt="#" width="100%">
         <div class="container">
             <div class="row">
                 <div class="col-12">

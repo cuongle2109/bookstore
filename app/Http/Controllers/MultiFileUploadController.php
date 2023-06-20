@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MultiFileUploadController extends Controller
 {
@@ -25,7 +26,7 @@ class MultiFileUploadController extends Controller
             foreach($request->file('files') as $key => $file)
             {
                 $name = $file->getClientOriginalName();
-                $path = $file->storeAs('public/files', $name);
+                $file->storeAs('public/files', $name);
                 $image[] = $name;
             }
         }

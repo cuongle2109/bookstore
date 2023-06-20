@@ -2,21 +2,25 @@
 @section('title', 'Home')
 @section('content')
     <div class="block-product-detail">
-        <img src="/storage/images/banner-gifl.jpg" class="img img-fluid mb-3" alt="#" width="100%">
+        <img src="{{ asset('images/banner-gift.jpg') }}" class="img img-fluid mb-3" alt="#" width="100%">
         <div class="container">
             <div class="row">
                 <div class="col-4">
                     <div class="slider slider-for">
                         @foreach($product['photos'] as $photo)
                             <div>
-                                <img src="/storage/files/{{ $photo }}" class="img img-fluid" alt="" width="100%">
+                                <img src="{{ file_exists('images/' . $photo)
+                                            ? asset('images/' . $photo)
+                                            : asset('storage/files/' . $photo)
+                                          }}"
+                                     class="img img-fluid" alt="" width="100">
                             </div>
                         @endforeach
                     </div>
                     <div class="slider slider-nav">
                         @foreach($product['photos'] as $photo)
                             <div>
-                                <img src="/storage/files/{{ $photo }}" class="img img-fluid" alt="" width="100" />
+                                <img src="{{ asset('storage/files/' . $photo) }}" class="img img-fluid" alt="" width="100" />
                             </div>
                         @endforeach
                     </div>
@@ -73,7 +77,7 @@
 					<div id="fb-root"></div>
                     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=620736825090744&autoLogAppEvents=1" nonce="RpaoMSzn"></script>
                     <div class="fb-comments" data-href="http://bookstore.test:8081/mypage/product-detail/{{ $product['id'] }}" data-width="100%" data-numposts="5"></div>
-               
+
                 </div>
                 <div class="col-12">
                     <div class="block-product-detail__order">
@@ -85,7 +89,10 @@
                                         <div class="box-product">
                                             <a href="{{ route('mypage.product-detail.show',$productShuffle['id']) }}">
                                                 <div class="box-product__image">
-                                                    <img src="/storage/files/{{ $productShuffle['photos'][0] }}"
+                                                    <img src="{{ file_exists('images/' . $productShuffle['photos'][0])
+                                            ? asset('images/' . $productShuffle['photos'][0])
+                                            : asset('storage/files/' . $productShuffle['photos'][0])
+                                          }}"
                                                          alt="">
                                                 </div>
                                                 <div class="box-product__content">

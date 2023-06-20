@@ -3,10 +3,10 @@
 @section('content')
     <div class="block-home">
         <div>
-            <img src="/storage/images/banner-gifl.jpg" class="img img-fluid mb-3" alt="#" width="100%">
+            <img src="{{ asset('images/banner-gift.jpg') }}" class="img img-fluid mb-3" alt="#" width="100%">
             <a href="">
                 <div id="imgThumbnailPreview">
-                    <img src="/storage/files/{{ $banner->photo }}" width="100%"/>
+                    <img src="{{ asset('storage/files/' . $banner->photo) }}" width="100%"/>
 
                 </div>
             </a>
@@ -68,6 +68,9 @@
                     contentType: false,
                     success: function (data) {
                         $('input[name="photo"]').val(data)
+                    },
+                    error: function (e) {
+                        console.log(e)
                     }
                 });
 
